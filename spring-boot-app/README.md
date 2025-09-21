@@ -48,10 +48,10 @@ Notes:
 
 ```bash
 # List first 5 users
-curl "http://localhost:8080/api/velo-users?limit=5"
+curl "http://localhost:8080/api/card-data?limit=5"
 
 # Get user by id (assuming primary key column 'id')
-curl "http://localhost:8080/api/velo-users/123"
+curl "http://localhost:8080/api/card-data/123"
 ```
 
 ## Packaging
