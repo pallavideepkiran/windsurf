@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Snake Game</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>Snake</h1>
+      <div class="scoreboard">
+        <div>Score: <span id="score">0</span></div>
+        <div>High: <span id="highScore">0</span></div>
+      </div>
+    </header>
+
+    <div class="controls">
+      <div class="left">
+        <button id="startBtn" class="btn primary">Start</button>
+        <button id="pauseBtn" class="btn">Pause</button>
+        <button id="restartBtn" class="btn danger">Restart</button>
+      </div>
+      <div class="right">
+        <label for="speed">Speed</label>
+        <select id="speed" aria-label="Speed">
+          <option value="6">Slow</option>
+          <option value="9" selected>Normal</option>
+          <option value="12">Fast</option>
+          <option value="16">Insane</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="canvas-wrap">
+      <canvas id="game" width="480" height="480" aria-label="Snake game board" role="img"></canvas>
+      <div id="overlay" class="overlay hidden" role="dialog" aria-live="polite"></div>
+    </div>
+
+    <div class="touch-controls" aria-label="Touch controls">
+      <div class="row">
+        <button class="dpad" data-dir="up" aria-label="Up">▲</button>
+      </div>
+      <div class="row">
+        <button class="dpad" data-dir="left" aria-label="Left">◀</button>
+        <button class="dpad center" data-dir="pause" aria-label="Pause/Resume">⏯</button>
+        <button class="dpad" data-dir="right" aria-label="Right">▶</button>
+      </div>
+      <div class="row">
+        <button class="dpad" data-dir="down" aria-label="Down">▼</button>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <p>Controls: Arrow keys / WASD. Space or P to pause. Enter to start/restart.</p>
+    </footer>
+  </div>
+
+  <script defer src="main.js"></script>
+</body>
+</html>

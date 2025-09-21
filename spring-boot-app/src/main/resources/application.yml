@@ -1,0 +1,19 @@
+spring:
+  datasource:
+    url: ${ENT_DB_URL:jdbc:postgresql://${ENT_DB_HOST:localhost}:${ENT_DB_PORT:5432}/${ENT_DB_NAME:entitlement}}
+    username: ${ENT_DB_USERNAME:postgres}
+    password: ${ENT_DB_PASSWORD:postgres}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    open-in-view: false
+
+server:
+  port: ${PORT:8080}
+
+app:
+  velo-users:
+    id-column: ${ENT_DB_ID_COLUMN:id}
+
+logging:
+  level:
+    org.springframework.jdbc.core: INFO
