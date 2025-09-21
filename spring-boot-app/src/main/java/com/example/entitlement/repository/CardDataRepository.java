@@ -35,4 +35,36 @@ public class CardDataRepository {
         String sql = baseSelect() + " WHERE card_type = ?";
         return jdbcTemplate.query(sql, rowMapper, cardType);
     }
+
+    public int insert(CardData cd) {
+        String sql = "INSERT INTO " + schema + ".card_data (" +
+                "id, client_id, card_brand, card_type, card_number, expires, cvv, has_chip, " +
+                "num_cards_issued, credit_limit, acct_open_date, year_pin_last_changed, card_on_dark_web) " +
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        return jdbcTemplate.update(
+                sql,
+                cd.getId(),
+                cd.getClientId(),
+                cd.getCardBrand(),
+                cd.getCardType(),
+                cd.getCardNumber(),
+                toSqlDate(cd.getExpires()),
+                cd.getCvv(),
+                cd.getHasChip(),
+                cd.getNumCardsIssued(),
+                cd.getCreditLimit(),
+                toSqlDate(cd.getAcctOpenDate()),
+                cd.getYearPinLastChanged(),
+                cd.getCardOnDarkWeb()
+        );
+    }
+
+    public int deleteById(int id) {
+        String sql = "DELETE FROM " + schema + ".card_data WHERE id = ?";
+        return jdbcTemplate.update(sql, id);
+    }
+
+    private java.sql.Date toSqlDate(java.time.LocalDate date) {
+        return date == null ? null : java.sql.Date.valueOf(date);
+    }
 }

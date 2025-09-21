@@ -21,4 +21,12 @@ public class CardDataService {
         }
         return repository.findByCardType(cardType);
     }
+
+    public int create(CardData cd) {
+        return repository.insert(cd);
+    }
+
+    public boolean deleteById(int id) {
+        return repository.deleteById(id) > 0;
+    }
 }
