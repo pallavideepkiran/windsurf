@@ -1,0 +1,29 @@
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.venv/
+venv/
+
+# Environment files
+.env
+*.sqlite3
+
+# Logs
+*.log
+
+# OS / IDE junk
+.DS_Store
+.idea/
+.vscode/
+
+# Build artifacts
+dist/
+build/
